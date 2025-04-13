@@ -10,5 +10,5 @@ services:
       - CHAINLIT_HOST=0.0.0.0
       - PYTHONUNBUFFERED=1
     volumes:
-      - .:/home/user/app  # Optional: Mount your project directory into the container for development
-      
+      - .:/home/user/app
+    user: "${UID}:${GID}"
