@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chainlit-app:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - PORT=7860
+      - CHAINLIT_HOST=0.0.0.0
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/home/user/app  # Optional: Mount your project directory into the container for development
+      
