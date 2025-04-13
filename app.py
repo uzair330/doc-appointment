@@ -5,12 +5,20 @@ import chainlit as cl
 from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel
 from agents.run import RunConfig
 from openai.types.responses import ResponseTextDeltaEvent
+from sqlmodel import SQLModel, Field, Session, create_engine, select
+from typing import Optional
+import os
 
 # Load environment variables
 load_dotenv()
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 if not gemini_api_key:
     raise ValueError("GEMINI_API_KEY is not set. Please ensure it is defined in your .env file.")
+
+
+# Connection to Neon Database
+DATABASE_URL = os.getenv('DR_URL')
+engine = create_engine(DATABASE_URL)
 
 # Define the two specialized agents
 brother_agent = Agent(

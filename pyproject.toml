@@ -8,4 +8,8 @@ dependencies = [
     "chainlit>=2.4.0",
     "openai-agents>=0.0.3",
     "python-dotenv>=1.0.1",
+    "sqlmodel >=0.0.22",
+    "pydantic >=2.9.2",
+    "psycopg2-binary >=2.9.9",
+    "bcrypt >= 4.0.1"
 ]
